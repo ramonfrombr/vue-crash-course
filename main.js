@@ -1,10 +1,23 @@
 const app = Vue.createApp({
+
     data() {
         return {
-            product: 'Socks',
-            description: 'Supposed to be used with shoes.',
-            image: './assets/images/socks_green.jpg',
-            url: 'https://www.google.com'
+            cart: [],
+            premium: false,
+        }
+    },
+
+    methods: {
+        addToCart(id) {
+            this.cart.push(id);
+        },
+        removeFromCart(id) {
+
+            const index = this.cart.indexOf(id);
+
+            if (index > -1) {
+                this.cart.splice(index, 1); // 2nd parameter means remove one item only
+            }
         }
     }
 });
